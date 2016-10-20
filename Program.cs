@@ -24,9 +24,14 @@ public class Program
 
         ");
         
-        string address = Console.ReadLine();
-        IJSONAPI api = new MashapeAPI();
-        // NutritionItem n = api.GetData<NutritionItem>("some url here");
-        // Console.WriteLine(JsonConvert.SerializeObject(data));
+        string term = Console.ReadLine();
+        IJSONAPI mashapi = new MashapeAPI();
+
+        // Nutrition n = await mashapi.GetData<Nutrition>("cheddar cheese", "APIKEY");
+        // Console.WriteLine(mashapi.ToJSON(n));
+
+        // IJSONAPI googapi = new GoogleAPI();
+        // Google g = await googapi.GetData<Google>("tacos", "APIKEY");
+        // Console.WriteLine(googapi.ToJSON(g));
     }
 }

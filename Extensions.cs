@@ -5,7 +5,8 @@ using Newtonsoft.Json;
 using System.Threading.Tasks;
 using System.Net.Http;
 
-public static class Extensions
+internal static class Extensions
 {
     
 }
+
