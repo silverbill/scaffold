@@ -27,8 +27,8 @@ internal class MashapeAPI : IJSONAPI {
     public async Task<string> GetJSON(string term, string key){
         var http = new HttpClient();
         var request = new HttpRequestMessage(HttpMethod.Get, urlFormat(term));
-        request.Headers.Add("-X-Mashape-Key", key);
-        var reply = await http.SendAsync(request);
+        request.Headers.Add("X-Mashape-Key", key);
+        var reply = await http.SendAsync(request);//json file
         var result = await reply.Content.ReadAsStringAsync();
         return result;
     }
