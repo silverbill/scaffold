@@ -43,40 +43,24 @@ public class Program
             double? calories = n.hits.ElementAt(0).fields.nf_calories ?? 0;
             double? fatGrams = n.hits.ElementAt(0).fields.nf_total_fat ?? 0;            
             Console.WriteLine("Item: "+item+" Calories: "+calories+" Fat Grams: "+fatGrams+" grams");
-            string stickem = ("Item: "+item+" Calories: "+calories+" Fat Grams: "+fatGrams+" grams");
-            Console.WriteLine(stickem);
-            string x = @"csv/nutrix.csv";
             
-            StreamWriter file2 = new StreamWriter(@"nutrix.csv", true);
-            file2.WriteLine(stickem);
-            file2.Close();
-            
-            if (!File.Exists(stickem))
-            {File.WriteAllText(x, stickem.ToString());}
-            else
-            {File.AppendAllText(x,stickem.ToString());}
+            string stickem = (item + calories.ToString() + fatGrams.ToString());
+            List<string> list1 = new List<string>();
+            list1.Add(item);list1.Add(calories.ToString());list1.Add(fatGrams.ToString());
+            if (!File.Exists(@"csv/nutrix.csv"))
+                {
+                    File.WriteAllText(@"csv/nutrix.csv", stickem);
+                }
+                    File.AppendAllLines(@"csv/nutrix.csv", list1);
+                }
 
             prompt().Wait();
-
-        }
-
-    }
-}           
-            //File.WriteAllText(@"csv/nutrix.csv", csvcontent.ToString()); //csvcontent.ToString()
-            
-            
+                
+                
+    } 
+}
         
-        
-        // public void WriteData2File(string filename){
-        // string x = "csv/nutrix.csv";
-
-        // if (!File.Exists(filename))
-        // {File.WriteAllText(x, filename.ToString());}
-        // else
-        // {File.AppendAllText(x,filename.ToString());}
-
-      
-        // }    
+         
         
 
     
