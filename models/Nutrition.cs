@@ -15,6 +15,7 @@ internal class Fields
 internal class Hit
 {
     public Fields fields;
+    
 }
 
 internal class Nutrition

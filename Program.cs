@@ -47,18 +47,28 @@ public class Program
             string stickem = (item + calories.ToString() + fatGrams.ToString());
             List<string> list1 = new List<string>();
             list1.Add(item);list1.Add(calories.ToString());list1.Add(fatGrams.ToString());
+            
+            
+            List<string> hitGoogleWith = mostCommonSearch(list1);
+            
             if (!File.Exists(@"csv/nutrix.csv"))
                 {
-                    File.WriteAllText(@"csv/nutrix.csv", stickem);
+                    File.AppendAllLines(@"csv/nutrix.csv", list1); 
+                                                          
+                    // or : File.WriteAllText(@"csv/nutrix.csv", stickem); but writes all in 1 line
                 }
-                    File.AppendAllLines(@"csv/nutrix.csv", list1);
-                }
-
-            prompt().Wait();
-                
-                
+                    File.AppendAllLines(@"csv/nutrix.csv", list1);   
+                }           
+            
+            prompt().Wait();                     
     } 
+    public string mostCommonSearch(List<string> list1){
+        List<string>listSearches = new List <string>(); 
+        listSearches.Add(list1.ElementAt(0));
+        return list1.ElementAt(0);
+    }
 }
+
         
          
         

@@ -43,6 +43,8 @@ internal class MashapeAPI : IJSONAPI {
         return JsonConvert.SerializeObject(o);
     }
 
+    
+
 }
 
 internal class GoogleAPI : IJSONAPI {
@@ -64,4 +66,11 @@ internal class GoogleAPI : IJSONAPI {
     public string ToJSON(Object o){
         return JsonConvert.SerializeObject(o);
     }
-} 
+
+    
+
+    
+
+    // Close the stream:
+   
+}
